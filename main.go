@@ -21,11 +21,10 @@ func waitTillInterrupt() {
 	onApplicationExit := make(chan os.Signal, 1)
 	signal.Notify(onApplicationExit, os.Interrupt, os.Kill, syscall.SIGTERM)
 
-	<- onApplicationExit
+	<-onApplicationExit
 	fmt.Println("Shutting down the system")
 }
 
 func requestHandler(writer http.ResponseWriter, request *http.Request) {
 	fmt.Println("Received a request")
-
 }
